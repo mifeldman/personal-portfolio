@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Micah's Portfolio Page</title>
-</head>
-<body> 
+  </head>
+  <body>
     <nav id="navbar">
-        <ul class="nav-list">
-            <li>
-                <a href="#welcome-section">About</a>
-            </li>
-            <li>
-                <a href="#welcome-section">Projects</a>
-            </li>
-            <li>
-                <a href="#welcome-section">Contacts</a>
-            </li>
-        </ul>
+      <ul class="nav-list">
+        <li>
+          <a href="#welcome-section">About</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#contact">Contacts</a>
+        </li>
+      </ul>
     </nav>
 
     <section id="welcome-section">
-        <h1>Welcome to my page!</h1>
+      <h1>Welcome to my page!</h1>
     </section>
 
     <section id="projects">
-
+      <figure class="project-tile">
+        <a href="https://sites.google.com/site/apaclubpac/"
+          ><img src="" alt=""/>
+          <figcaption></figcaption
+        ></a>
+      </figure>
     </section>
 
     <section id="contact">
-        
+      <div class="contact-icons">
+        <!-- This is a bootstrap function. Do some more research on that before you use it. -->
+        <a
+          href="https://github.com/freecodecamp"
+          target="_blank"
+          id="profile-link"
+          class="btn contact-details"
+          ><i class="fab fa-github"></i>Github</a
+        >
+      </div>
     </section>
 
     <footer></footer>
 
-    put script at bottom
-</body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
 </html>
