@@ -1,3 +1,25 @@
+@media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+  
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 55%;
+    }
+  }
+  
+  
+html{
+    scroll-behavior: smooth;
+    font-size: .85rem; 
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Rubik', sans-serif;
+
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -8,7 +30,16 @@ body{
     font-size: 2rem;
 }
 
-
+@media (max-width: 28.75em) {
+    .nav {
+      justify-content: center;
+    }
+  
+    .nav-list {
+      margin: 0 1rem;
+    }
+  }
+  
 #navbar {
     /* make the content go to the center */
     justify-content: flex-end;
@@ -17,6 +48,9 @@ body{
     background-color: royalblue;
     width: 100%;
 }
+
+
+  
 
 #welcome-section{
     /* put the stuff from the codepen.io project. */
@@ -34,17 +68,49 @@ body{
     margin-right: 2rem;
 }
 
+.nav-list a:hover {
+    background-color:rgba(158, 14, 14, 0.514);
+}
+
+a{
+    text-decoration: none;
+}
+
 .nav-list a{
     padding: 2rem;
     display: block;
     font-size: 2.2rem;
-    text-decoration: none;
     color: white;
 }
 
 .project-list {
     display: flex;
     justify-content: space-around;
+  
+}
+
+/* @media (max-width: 860px) {
+    .project-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 2.5rem;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-bottom: 6rem;
+    }
+  } */
+
+.project-list img {
+    max-width: 20rem;
+}
+
+figcaption {
+    color:#fff;
+    text-align: center;
+    background-color: rgba(0,0,0);
+    position: relative;
+    top:-20px;
 }
 
 h1 {
@@ -54,6 +120,21 @@ h1 {
 #contact {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     
 }
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    background-color: darkcyan;
+    color: white;  
+}
 
+
+/* add the media query from the codepen.io and make it your own. make it interesting!! 
+Explore box shadowing, rounding, and add some CSS animation. MAKE IT GOOD! THIS WILL BECOME YOUR FINAL.
+Hook up with Netlify and github.
+Maybe some scrolling CSS?
+change stuff to REM calculations*/
