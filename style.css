@@ -1,168 +1,164 @@
 @media (max-width: 75em) {
-    html {
-      font-size: 60%;
-    }
+  html {
+    font-size: 60%;
   }
-  
-  @media (max-width: 61.25em) {
-    html {
-      font-size: 55%;
-    }
+}
+
+@media (max-width: 61.25em) {
+  html {
+    font-size: 55%;
   }
-  
-  
-html{
-    scroll-behavior: smooth;
-    font-size: rem; 
-    font-weight: 400;
-    line-height: 1.4;
-    font-family: 'Scope One', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: rem;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: "Scope One", serif;
 }
 
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 2rem;
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
 }
 
 @media (max-width: 28.75em) {
-    .nav {
-      justify-content: center;
-    }
-  
-    .nav-list {
-      margin: 0 1rem;
-    }
-  }
-  
-#navbar {
-    /* make the content go to the center */
-    justify-content: flex-end;
-    display: flex;
-    position: fixed;
-    background-color: #079992;
-    width: 100%;
-    z-index: 1; /*this makes it so things don't overlap */
-}
-
-
-#welcome-section{
-    /* put the stuff from the codepen.io project. */
-    background-color: black;
-    display: flex;
-    flex-direction: column;
+  .nav {
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-image: url(/images/desk.jpg);
-    background-repeat: no-repeat;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
 }
 
-.nav-list{
-    list-style: none;
-    display: flex;
-    margin-right: 2rem;
+#navbar {
+  /* make the content go to the center */
+  justify-content: flex-end;
+  display: flex;
+  position: fixed;
+  background-color: #079992;
+  width: 100%;
+  z-index: 1; /*this makes it so things don't overlap */
+}
+
+#welcome-section {
+  /* put the stuff from the codepen.io project. */
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/desk.jpg);
+  background-repeat: no-repeat;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin-right: 2rem;
 }
 
 .nav-list a:hover {
-    background-color:#fad390;
-    color:black;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-}
-
-.nav-list a{
-    padding: 2rem;
-    display: block;
-    font-size: 2.2rem;
-    color: white;
-}
-
-#projects {
-    background-color: #fad390;
-    margin: 0;
-    padding: 4rem 0 8rem 0;
-}
-
-.projectsheader{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 0 3rem 0;
-}
-.project-list {
-    display: flex;
-    justify-content: space-around;
-}
-
-.project-tile {
-    transition: transform 0.2s ease-out;
-    padding: 1.5rem;
-}
-
-.project-tile:hover {
-    transform: translateY(10px);
-    opacity: 0.5;
-  }
-
-
-.project-list img {
-    max-width: 25rem;
-}
-
-figcaption {
-    color:#fff;
-    text-align: center;
-    background-color: rgba(0,0,0);
-    position: relative;
-    top:-20px;
-}
-
-h1 {
-    color: white;
-    background-color: #079992;
-    padding: 3rem 3rem 2rem 3rem;
-    border-radius: 3rem;
-    font-family: 'Scope One', serif;
-    font-size: 5rem;
-
-}
-
-h2 {
-    margin: .5rem;
-    font-family: 'Scope One', serif;
-    font-size: 4.5rem;
-}
-
-h5 {
-    font-family: 'Scope One', serif;
-    font-size: 2rem;
+  background-color: #fad390;
+  color: black;
 }
 
 a {
-    font-family: 'Scope One', serif;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-list a {
+  padding: 2rem;
+  display: block;
+  font-size: 2.2rem;
+  color: white;
+}
+
+#projects {
+  background-color: #fad390;
+  margin: 0;
+  padding: 4rem 0 8rem 0;
+}
+
+.projectsheader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0 3rem 0;
+}
+.project-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.project-tile {
+  transition: transform 0.2s ease-out;
+  padding: 1.5rem;
+}
+
+.project-tile:hover {
+  transform: translateY(10px);
+  opacity: 0.5;
+}
+
+.project-list img {
+  max-width: 25rem;
+}
+
+figcaption {
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0);
+  position: relative;
+  top: -20px;
+}
+
+h1 {
+  color: white;
+  background-color: #079992;
+  padding: 3rem 3rem 2rem 3rem;
+  border-radius: 3rem;
+  font-family: "Scope One", serif;
+  font-size: 5rem;
+}
+
+h2 {
+  margin: 0.5rem;
+  font-family: "Scope One", serif;
+  font-size: 4.5rem;
+}
+
+h5 {
+  font-family: "Scope One", serif;
+  font-size: 2rem;
+}
+
+a {
+  font-family: "Scope One", serif;
 }
 
 p {
-    color: white;
-    padding: 1rem 1rem .5rem 1rem;
-    margin-top: 1rem;
-    background-color: #079992;
-    border-radius: 1rem;
-    font-family: 'Scope One', serif;
-    font-size: 3rem;
+  color: white;
+  padding: 1rem 1rem 0.5rem 1rem;
+  margin-top: 1rem;
+  background-color: #079992;
+  border-radius: 1rem;
+  font-family: "Scope One", serif;
+  font-size: 3rem;
 }
 
 #contact {
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -173,41 +169,37 @@ display: flex;
 }
 
 .contact-header {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0 1rem 0;
 }
 
 .contact-icons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 980px;
-    margin: 3rem 0 2rem 0;
-    flex-wrap: wrap;
-  }
-
-  .contactdet {
-    font-size: 2.4rem;
-    transition: transform 0.2s ease-out;
-    text-decoration: none;
-    color:white;
-  }
-  
-  .contactdet:hover {
-    transform: translateY(-8px);
-  }
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    background-color: darkcyan;
-    color: white;  
-    font-family: 'Scope One', serif;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 980px;
+  margin: 3rem 0 2rem 0;
+  flex-wrap: wrap;
 }
 
+.contactdet {
+  font-size: 2.4rem;
+  transition: transform 0.2s ease-out;
+  text-decoration: none;
+  color: white;
+}
 
-/*Finalize Media Query
-Launch it in Netlify...deploy it there.*/
+.contactdet:hover {
+  transform: translateY(-8px);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background-color: darkcyan;
+  color: white;
+  font-family: "Scope One", serif;
+}
