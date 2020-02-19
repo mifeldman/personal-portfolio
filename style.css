@@ -13,11 +13,10 @@
   
 html{
     scroll-behavior: smooth;
-    font-size: .85rem; 
+    font-size: rem; 
     font-weight: 400;
     line-height: 1.4;
-    font-family: 'Rubik', sans-serif;
-
+    font-family: 'Scope One', serif;
 }
 
 * {
@@ -45,21 +44,22 @@ body{
     justify-content: flex-end;
     display: flex;
     position: fixed;
-    background-color: royalblue;
+    background-color: #079992;
     width: 100%;
 }
 
-
-  
 
 #welcome-section{
     /* put the stuff from the codepen.io project. */
     background-color: black;
     display: flex;
-    height: 100vh;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/desk.jpg);
+    background-repeat: no-repeat;
 }
 
 .nav-list{
@@ -69,11 +69,13 @@ body{
 }
 
 .nav-list a:hover {
-    background-color:rgba(158, 14, 14, 0.514);
+    background-color:#fad390;
+    color:black;
 }
 
 a{
     text-decoration: none;
+    color: black;
 }
 
 .nav-list a{
@@ -83,26 +85,35 @@ a{
     color: white;
 }
 
+#projects {
+    background-color: #fad390;
+    margin: 0;
+    padding: 4rem 0 8rem 0;
+}
+
+.projectsheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0 3rem 0;
+}
 .project-list {
     display: flex;
     justify-content: space-around;
-  
 }
 
-/* @media (max-width: 860px) {
-    .project-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        grid-gap: 2.5rem;
-        width: 100%;
-        max-width: 1280px;
-        margin: 0 auto;
-        margin-bottom: 6rem;
-    }
-  } */
+.project-tile {
+    transition: transform 0.2s ease-out;
+}
+
+.project-tile:hover {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+
 
 .project-list img {
-    max-width: 20rem;
+    max-width: 30rem;
 }
 
 figcaption {
@@ -115,14 +126,76 @@ figcaption {
 
 h1 {
     color: white;
+    background-color: #079992;
+    padding: 3rem 3rem 2rem 3rem;
+    border-radius: 3rem;
+    font-family: 'Scope One', serif;
+    font-size: 5rem;
+
+}
+
+h2 {
+    margin: .5rem;
+    font-family: 'Scope One', serif;
+    font-size: 4.5rem;
+}
+
+h5 {
+    font-family: 'Scope One', serif;
+    font-size: 2rem;
+}
+
+a {
+    font-family: 'Scope One', serif;
+}
+
+p {
+    color: white;
+    padding: 1rem 1rem .5rem 1rem;
+    margin-top: 1rem;
+    background-color: #079992;
+    border-radius: 1rem;
+    font-family: 'Scope One', serif;
+    font-size: 3rem;
 }
 
 #contact {
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #079992;
+  padding: 3rem 0 4rem 0;
+  color: white;
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0 1rem 0;
+}
+
+.contact-icons {
     display: flex;
     justify-content: space-around;
+    width: 100%;
+    max-width: 980px;
+    margin: 3rem 0 2rem 0;
     flex-wrap: wrap;
-    
-}
+  }
+
+  .contactdet {
+    font-size: 2.4rem;
+    transition: transform 0.2s ease-out;
+    text-decoration: none;
+    color:white;
+  }
+  
+  .contactdet:hover {
+    transform: translateY(-8px);
+  }
+
 footer {
     display: flex;
     justify-content: center;
@@ -130,11 +203,9 @@ footer {
     height: 4rem;
     background-color: darkcyan;
     color: white;  
+    font-family: 'Scope One', serif;
 }
 
 
-/* add the media query from the codepen.io and make it your own. make it interesting!! 
-Explore box shadowing, rounding, and add some CSS animation. MAKE IT GOOD! THIS WILL BECOME YOUR FINAL.
-Hook up with Netlify and github.
-Maybe some scrolling CSS?
-change stuff to REM calculations*/
+/*Finalize Media Query
+Launch it in Netlify...deploy it there.*/
