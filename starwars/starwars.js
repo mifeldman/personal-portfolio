@@ -1,8 +1,7 @@
-import { films } from "../data/films.js"; //get the Star Wars API from Canvas.
 import { people } from "../data/people.js";
-import { starships } from "../data/starships.js";
 
-const greetingDiv = document.querySelector(".greeting");
+
+const gallery = document.querySelector(".gallery");
 
 const maleButton = document.querySelector("#maleButton");
 const femaleButton = document.querySelector("#femaleButton");
@@ -28,11 +27,11 @@ const otherCharacters = people.filter(person => {
 //console.log(otherCharacters.length);
 
 maleButton.addEventListener("click", event => {
-  populateDOM(maleCharacters = people.filter(person => person.gender === "male"));
+  populateDOM(people.filter(person => person.gender === "male"));
 });
 
 femaleButton.addEventListener("click", event => {
-    populateDOM(femaleCharacters = people.filter(person => person.gender === "female"));
+    populateDOM(people.filter(person => person.gender === "female"));
   });
 
 otherButton.addEventListener("click", event => {
@@ -47,7 +46,13 @@ function getCharNumber(url) {
   if (url.charAt(start) === '/'){
       start++
   }
-  console.log(url.slice(start, end))
+  return url.slice(start,end)
+}
+
+function removeChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  } 
 }
 
 //getCharNumber("https://swapi.co/api/people/1/")
@@ -74,6 +79,6 @@ function populateDOM(characters) {
       //console.log(event);
     });
     anchorWrap.appendChild(imageItem); //you need to add something to the DOM once you create it in JS
-    greetingDiv.appendChild(anchorWrap);
+    gallery.appendChild(anchorWrap);
   });
 }
