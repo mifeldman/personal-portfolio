@@ -11,9 +11,23 @@ a > img {
     margin: 4px;
 }
 
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: stretch;
+}
+
 button {
     font-size: 2rem;
-    background-color: seagreen;
+    background-color: black;
+    color:white;
     border-radius: 10px;
     padding: 8px;
+    width: 30%;
+    margin-left: 2rem;
 }
