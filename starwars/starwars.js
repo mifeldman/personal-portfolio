@@ -1,5 +1,5 @@
 import { people } from "../data/people.js";
-import { removeChildren, getLastNumber } from '../scripts/uti.js'
+import { removeChildren, getLastNumber } from "../scripts/uti.js";
 
 const gallery = document.querySelector(".gallery");
 
@@ -22,15 +22,15 @@ maleButton.addEventListener("click", event => {
 });
 
 femaleButton.addEventListener("click", event => {
-    populateDOM(people.filter(person => person.gender === "female"));
-  });
+  populateDOM(people.filter(person => person.gender === "female"));
+});
 
 otherButton.addEventListener("click", event => {
-    populateDOM(otherCharacters);
-})
+  populateDOM(otherCharacters);
+});
 
 function populateDOM(characters) {
-  removeChildren(gallery)
+  removeChildren(gallery);
   characters.forEach(person => {
     // need to extract the number from the person.url property
     let charNum = getLastNumber(person.url);

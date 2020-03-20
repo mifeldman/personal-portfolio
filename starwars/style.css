@@ -1,54 +1,55 @@
-:root  {
-    box-sizing: border-box;
+:root {
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #dfdfdf;
-    overflow-x: hidden;
+  background-color: #dfdfdf;
+  overflow-x: hidden;
 }
 
 a > img {
-    height: 18rem;
-    margin: 4px;
+  height: 18rem;
+  margin: 4px;
 }
 
 h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 50px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 50px;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-evenly;
-    align-content: stretch;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: stretch;
 }
 
 button {
-    font-size: 2rem;
-    background-color: black;
-    color:white;
-    border-radius: 10px;
-    padding: 8px;
-    width: 30%;
-    margin-left: 2rem;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  padding: 8px;
+  width: 30%;
+  margin-left: 2rem;
 }
 
 .gallery {
-    text-align: center;
-    margin-top: 1rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .gallery img {
-    border-radius: 25px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black;
-    margin: .75rem;
+  border-radius: 25px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+  margin: 0.75rem;
 }
 
 .gallery img:hover {
-    border-color: white;
+  border-color: white;
 }
