@@ -4,6 +4,7 @@
 
 body {
     background-color: #dfdfdf;
+    overflow-x: hidden;
 }
 
 a > img {
@@ -14,6 +15,9 @@ a > img {
 h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 50px;
 }
 
 .nav {
@@ -30,4 +34,21 @@ button {
     padding: 8px;
     width: 30%;
     margin-left: 2rem;
+}
+
+.gallery {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.gallery img {
+    border-radius: 25px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black;
+    margin: .75rem;
+}
+
+.gallery img:hover {
+    border-color: white;
 }
