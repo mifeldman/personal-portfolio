@@ -6,7 +6,8 @@ body {
   background-color: black;
 }
 
-header, footer {
+header,
+footer {
   display: flex;
   text-align: center;
   justify-content: center;
