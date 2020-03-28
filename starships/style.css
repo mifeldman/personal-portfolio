@@ -6,8 +6,7 @@ body {
   background-color: black;
 }
 
-header,
-footer {
+header, footer {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -47,7 +46,7 @@ nav {
   border-radius: 30px;
   padding-right: 0.75rem;
   box-shadow: 5px 10px;
-  margin-left: 0.5rem;
+  margin-left: 5rem;
   background-color: white;
 }
 
@@ -57,8 +56,9 @@ nav {
 
 /* Consider using flexbox here on main  */
 img {
-  margin-left: 8.2rem;
+  margin-left: 5rem;
   position: fixed;
   z-index: 1;
   border-radius: 25px;
+  margin-top: 5rem;
 }
