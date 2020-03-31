@@ -104,7 +104,7 @@ a {
 
 .project-tile {
   transition: transform 0.2s ease-out;
-  padding: 1.5rem;
+  padding: .5rem;
 }
 
 .project-tile:hover {
@@ -113,7 +113,7 @@ a {
 }
 
 .project-list img {
-  max-width: 25rem;
+  max-width: 20rem;
 }
 
 figcaption {
