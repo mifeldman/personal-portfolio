@@ -2,11 +2,21 @@ import { senators } from "../data/senators.js"
 
 const senatorDiv = document.querySelector('.senators');
 
-const main = document.querySelector('main');
+function getSimplifiedSenators(senatorArray) {
+    return senatorArray.map(senator => {
+        let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `
+        return {
+            id: senator.id,
+            name: `${senator.first_name}${middleName}${senator.last_name}`,
+            imgURL: `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`,
+            seniority: parseInt(senator.seniority, 10)
+        }
+    })
+}
 
-function populateSenatorDiv(justSenatorNames) {
-    console.log(justSenatorNames)
-    justSenatorNames.forEach(senator => {
+function populateSenatorDiv(simpleSenators) {
+    console.log(simpleSenators)
+    simpleSenators.forEach(senator => {
         let senFigure = document.createElement('figure')
         let figImg = document.createElement('img')
         let figCaption = document.createElement('figcaption')
@@ -27,16 +37,14 @@ const filterSenators = (prop, value) => {
     })
 }
 
-
-const senatorNames = senators.map(senator => {
-    let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `
-    return {
-        id: senator.id,
-        name: `${senator.first_name}${middleName}${senator.last_name}`,
-        imgURL: `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`
-        //seniority
-    }
-})
+const republicans = filterSenators('party', 'R')
 
 
-populateSenatorDiv(senators);
+const mostSeniority = getSimplifiedSenators(republicans).reduce(
+    (acc, senator) => {
+        return acc.seniority > senator.seniority ? acc : senator
+    })
+
+console.log(mostSeniority)
+
+populateSenatorDiv(getSimplifiedSenators(republicans));
