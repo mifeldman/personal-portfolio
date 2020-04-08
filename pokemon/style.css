@@ -1,5 +1,7 @@
-body {
-    font-family: sans-serif;
+.pokemonGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .scene{
