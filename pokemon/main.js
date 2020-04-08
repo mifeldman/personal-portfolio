@@ -24,7 +24,7 @@ console.log(allPokemon)
 populatePokeCards(allPokemon)
 
 
-function populatePokeCard(pokeArray) {
+function populatePokeCards(pokeArray) {
   pokeArray.forEach((pokemon) => {
     let pokeScene = document.createElement("div");
     pokeScene.className = "scene";
