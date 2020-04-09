@@ -1,0 +1,13 @@
+body {
+  display: flex;
+}
+
+textarea {
+  font-size: 1.8rem;
+}
+
+button {
+  background-color: darkred;
+  color: white;
+  font-size: 1.5rem;
+}

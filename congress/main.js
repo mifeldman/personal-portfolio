@@ -43,6 +43,8 @@ const filterSenators = (prop, value) => {
 const republicans = filterSenators('party', 'R')
 const democrats = filterSenators('party', 'D')
 
+// looks like your missing mostSeniority and some other stuff? maybe ask about that? what we are supposed to do for this assignment
+
 
 const mostSeniority = getSimplifiedSenators(senators).reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 
