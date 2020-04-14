@@ -1,3 +1,9 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .pokemonGrid {
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +16,7 @@
   border: 1px solid #ccc;
   margin: 10px;
   perspective: 600px;
+  border-radius: 25px;
 }
 
 .card {
@@ -23,6 +30,7 @@
 
 .card.is-flipped {
   transform: rotateY(180deg);
+  border-radius: 25px;
 }
 
 .card__face {
@@ -35,6 +43,7 @@
   font-weight: bold;
   font-size: 40px;
   backface-visibility: hidden;
+  border-radius: 25px;
 }
 
 .card__face--front {
@@ -44,4 +53,8 @@
 .card__face--back {
   background: blue;
   transform: rotateY(180deg);
+}
+
+li {
+  text-align: left;
 }

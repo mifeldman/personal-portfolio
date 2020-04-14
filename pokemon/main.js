@@ -1,4 +1,5 @@
 //resusable asnyc function
+function loadPage(){
 async function getAPIData(url) {
   try {
     const response = await fetch(url);
@@ -8,8 +9,20 @@ async function getAPIData(url) {
     console.error(error);
   }
 }
+}
 
 let pokemonGrid = document.querySelector(".pokemonGrid");
+
+let startButton = document.querySelector('#startButton')
+let newButton = document.querySelector('#newButton')
+
+startButton.addEventListener('click', () => {
+  loadPage()
+})
+
+newButton.addEventListener('click', () => {
+  addPokemon()
+})
 
 getAPIData("https://pokeapi.co/api/v2/pokemon?&limit=25").then((data) => {
   for (const pokemon of data.results) {
@@ -50,10 +63,26 @@ function populateCardFront(pokemon) {
   cardFront.className = "card__face card__face--front";
   cardFront.textContent = pokemon.name;
   let frontImage = document.createElement("img");
-  frontImage.src = `../images/${pokemon.id}.png`;
+  frontImage.src = `../images/${getImageFileName(pokemon)}.png`;
+
+  let frontLabel = document.createElement('p')
+  frontLabel.textContent = `${pokemon.name.charAt(0).toUpperCase}${pokemon.name.slice(1)}`
+
   cardFront.appendChild(frontImage);
+  cardFront.appendChild(frontLabel)
   return cardFront;
 }
+
+function getImageFileName(pokemon) {
+  if (pokemon.id < 10) {
+    return `00${pokemon.id}`
+  } else if (pokemon.id > 9 && pokemon.id < 100) {
+    return `0${pokemon.id}`
+  } else if (pokemon.id > 809) {
+    return `pokeball`
+  }
+}
+
 
 function populateCardBack(pokemon) {
   let cardFront = document.createElement("div");
@@ -69,3 +98,35 @@ function populateCardBack(pokemon) {
 }
 
 //also do some formatting over the weekend so the pokemon cards look purty.
+
+class Pokemon {
+  constructor(height, weight, name, abilities) {
+    this.height = height;
+    this.weight = weight;
+    this.name = name
+    this.abilities = abilities
+    this.id = 900
+  }
+}
+
+function addPokemon () {
+  let Thoremon = new Pokemon(190, 290, 'Thoremon',
+  [
+    {
+      ability: {
+        name: 'Thunder Belly'
+      }
+    },
+    {
+      ability: {
+        name: 'Beard Power'
+      }
+    },
+      {
+        ability: {
+          name: 'Stinky'
+        }
+      }
+  ])
+  populatePokeCard(Thoremon)
+}
