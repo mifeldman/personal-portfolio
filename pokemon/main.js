@@ -1,28 +1,28 @@
 //resusable asnyc function
-function loadPage(){
-async function getAPIData(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
+function loadPage() {
+  async function getAPIData(url) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   }
-}
 }
 
 let pokemonGrid = document.querySelector(".pokemonGrid");
 
-let startButton = document.querySelector('#startButton')
-let newButton = document.querySelector('#newButton')
+let startButton = document.querySelector("#startButton");
+let newButton = document.querySelector("#newButton");
 
-startButton.addEventListener('click', () => {
-  loadPage()
-})
+startButton.addEventListener("click", () => {
+  loadPage();
+});
 
-newButton.addEventListener('click', () => {
-  addPokemon()
-})
+newButton.addEventListener("click", () => {
+  addPokemon();
+});
 
 getAPIData("https://pokeapi.co/api/v2/pokemon?&limit=25").then((data) => {
   for (const pokemon of data.results) {
@@ -65,24 +65,25 @@ function populateCardFront(pokemon) {
   let frontImage = document.createElement("img");
   frontImage.src = `../images/${getImageFileName(pokemon)}.png`;
 
-  let frontLabel = document.createElement('p')
-  frontLabel.textContent = `${pokemon.name.charAt(0).toUpperCase}${pokemon.name.slice(1)}`
+  let frontLabel = document.createElement("p");
+  frontLabel.textContent = `${
+    pokemon.name.charAt(0).toUpperCase
+  }${pokemon.name.slice(1)}`;
 
   cardFront.appendChild(frontImage);
-  cardFront.appendChild(frontLabel)
+  cardFront.appendChild(frontLabel);
   return cardFront;
 }
 
 function getImageFileName(pokemon) {
   if (pokemon.id < 10) {
-    return `00${pokemon.id}`
+    return `00${pokemon.id}`;
   } else if (pokemon.id > 9 && pokemon.id < 100) {
-    return `0${pokemon.id}`
+    return `0${pokemon.id}`;
   } else if (pokemon.id > 809) {
-    return `pokeball`
+    return `pokeball`;
   }
 }
-
 
 function populateCardBack(pokemon) {
   let cardFront = document.createElement("div");
@@ -99,34 +100,34 @@ function populateCardBack(pokemon) {
 
 //also do some formatting over the weekend so the pokemon cards look purty.
 
+// New Custom Javascript Object Creation
 class Pokemon {
   constructor(height, weight, name, abilities) {
     this.height = height;
     this.weight = weight;
-    this.name = name
-    this.abilities = abilities
-    this.id = 900
+    this.name = name;
+    this.abilities = abilities;
+    this.id = 900;
   }
 }
 
-function addPokemon () {
-  let Thoremon = new Pokemon(190, 290, 'Thoremon',
-  [
+function addPokemon() {
+  let Thoremon = new Pokemon(190, 290, "Thoremon", [
     {
       ability: {
-        name: 'Thunder Belly'
-      }
+        name: "Thunder Belly",
+      },
     },
     {
       ability: {
-        name: 'Beard Power'
-      }
+        name: "Beard Power",
+      },
     },
-      {
-        ability: {
-          name: 'Stinky'
-        }
-      }
-  ])
-  populatePokeCard(Thoremon)
+    {
+      ability: {
+        name: "Stinky",
+      },
+    },
+  ]);
+  populatePokeCard(Thoremon);
 }
