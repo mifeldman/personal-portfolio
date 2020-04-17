@@ -101,6 +101,11 @@ class Pokemon {
 
 function addPokemon() {
   
+
+
+  // ------- CHANGE WHERE THE FORM IS PLACED IN THE DOM !!!!! ------
+
+  
   var createform = document.createElement('form'); // Create New Element Form
 createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
 createform.setAttribute("method", "post"); // Setting Method Attribute on Form
@@ -114,14 +119,14 @@ createform.appendChild(heading);
 
 
 
-// Create Label and Input for Height
-var heightLabel = document.createElement('label'); 
-heightLabel.innerHTML = "Height : "; 
-createform.appendChild(heightLabel);
-var height = document.createElement('input'); 
-height.setAttribute("type", "text");
-height.setAttribute("id", "height");
-createform.appendChild(height);
+// Create Label and Input for Pokemon Name
+var nameLabel = document.createElement('label'); 
+nameLabel.innerHTML = "Name : "; 
+createform.appendChild(nameLabel);
+var name = document.createElement('input'); 
+name.setAttribute("type", "text");
+name.setAttribute("id", "name");
+createform.appendChild(name);
 
 // Create Label and Input for Height
 var heightLabel = document.createElement('label'); 
@@ -131,6 +136,33 @@ var height = document.createElement('input');
 height.setAttribute("type", "text");
 height.setAttribute("id", "height");
 createform.appendChild(height);
+
+// Create Label and Input for Weight
+var weightLabel = document.createElement('label'); 
+weightLabel.innerHTML = "Weight : "; 
+createform.appendChild(weightLabel);
+var weight = document.createElement('input'); 
+weight.setAttribute("type", "text");
+weight.setAttribute("id", "weight");
+createform.appendChild(weight);
+
+// Create Label and Input for Ability 1
+var abilityFirstLabel = document.createElement('label'); 
+abilityFirstLabel.innerHTML = "Ability 1 : "; 
+createform.appendChild(abilityFirstLabel);
+var abilityFirst = document.createElement('input'); 
+abilityFirst.setAttribute("type", "text");
+abilityFirst.setAttribute("id", "ability1");
+createform.appendChild(abilityFirst);
+
+// Create Label and Input for Ability 2
+var abilitySecondLabel = document.createElement('label'); 
+abilitySecondLabel.innerHTML = "Ability 2 : "; 
+createform.appendChild(abilitySecondLabel);
+var abilitySecond = document.createElement('input'); 
+abilitySecond.setAttribute("type", "text");
+abilitySecond.setAttribute("id", "ability2");
+createform.appendChild(abilitySecond);
 
 
 
@@ -147,14 +179,27 @@ submitelement.addEventListener("click", () => {
 }
 
 
-
 function createPoke () {
+  let name = document.getElementById('name').value;
   let height = document.getElementById('height').value;
+  let weight = document.getElementById('weight').value;
+  let firstAbility = document.getElementById('ability1').value;
+  let secondAbility = document.getElementById('ability2').value;
   
+  console.log(name, height, weight, firstAbility, secondAbility)
 
-
-
-  let thoremon = new Pokemon(height, 290, "Thoremon", []);
-  populatePokeCard(thoremon);
-  console.log(thoremon)
+  let newPoke = new Pokemon(name, height, weight, [
+    {
+      ability: {
+      name: firstAbility
+      }
+    },
+    {
+      ability: {
+      name: secondAbility
+      }
+    }
+]);
+  populatePokeCard(newPoke);
+  console.log(newPoke)
 }
