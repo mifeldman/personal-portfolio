@@ -1,4 +1,42 @@
-.senators {
+body {
+    background-color: #CECECE;
+}
+
+header {
+    text-align: center;
+}
+
+.senatorGrid {
     display: flex;
     flex-wrap: wrap;
+}
+
+figure {
+    margin: .5rem;
+}
+
+figcaption {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fa-democrat {
+    color: blue;
+}
+
+.fa-republican {
+    color: red;
+}
+
+.fa-star {
+    color: yellow;
+}
+
+.progressDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: .75rem;
 }
