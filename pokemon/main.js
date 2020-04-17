@@ -9,6 +9,16 @@ async function getAPIData(url) {
   }
 }
 
+function loadPage() {
+  getAPIData('https://pokeapi.co/api/v2/pokemon/?&limit=25').then((data) => {
+    for (const pokemon of data.results) {
+      getAPIData(pokemon.url).then((pokeData) => {
+        populatePokeCard(pokeData)
+      })
+    }
+  })
+}
+
 let pokemonGrid = document.querySelector(".pokemonGrid");
 let startButton = document.querySelector("#startButton");
 let newButton = document.querySelector("#newButton");
@@ -21,15 +31,7 @@ newButton.addEventListener("click", () => {
   addPokemon();
 });
 
-function loadPage() {
-  getAPIData('https://pokeapi.co/api/v2/pokemon/?&limit=25').then((data) => {
-    for (const pokemon of data.results) {
-      getAPIData(pokemon.url).then((pokeData) => {
-        populatePokeCard(pokeData)
-      })
-    }
-  })
-}
+
 
 function populatePokeCard(singlePokemon) {
   let pokeScene = document.createElement('div')
@@ -98,20 +100,78 @@ class Pokemon {
 }
 
 function addPokemon() {
+  
+  var createform = document.createElement('form'); // Create New Element Form
+createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
+createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+pokemonGrid.appendChild(createform);
+
+  var heading = document.createElement('h2'); // Heading of Form
+heading.innerHTML = "New Pokemon";
+createform.appendChild(heading);
+
+var namelabel = document.createElement('label'); // Create Label for Name Field
+namelabel.innerHTML = "Pokemon Name : "; // Set Field Labels
+createform.appendChild(namelabel);
+
+var inputelement = document.createElement('input'); // Create Input Field for Name
+inputelement.setAttribute("type", "text");
+inputelement.setAttribute("name", "dname");
+createform.appendChild(inputelement);
+
+var linebreak = document.createElement('br');
+createform.appendChild(linebreak);
+
+var emaillabel = document.createElement('label'); // Create Label for E-mail Field
+emaillabel.innerHTML = "Your Email : ";
+createform.appendChild(emaillabel);
+
+var emailelement = document.createElement('input'); // Create Input Field for E-mail
+emailelement.setAttribute("type", "text");
+emailelement.setAttribute("name", "demail");
+createform.appendChild(emailelement);
+
+var emailbreak = document.createElement('br');
+createform.appendChild(emailbreak);
+
+var messagelabel = document.createElement('label'); // Append Textarea
+messagelabel.innerHTML = "Your Message : ";
+createform.appendChild(messagelabel);
+
+var texareaelement = document.createElement('textarea');
+texareaelement.setAttribute("name", "dmessage");
+createform.appendChild(texareaelement);
+
+var messagebreak = document.createElement('br');
+createform.appendChild(messagebreak);
+
+var submitelement = document.createElement('input'); // Append Submit Button
+submitelement.setAttribute("type", "submit");
+submitelement.setAttribute("value", "Submit");
+createform.appendChild(submitelement);
+submitelement.addEventListener("click", () => {
+  createPoke();
+});
+
+}
+
+
+
+function createPoke () {
   let Thoremon = new Pokemon(190, 290, "Thoremon", [
     {
       ability: {
-        name: "Thunder Belly",
+       name: "Thunder Belly",
+    },
+    },
+    {
+      ability: {
+      name: "Beard Power",
       },
     },
     {
       ability: {
-        name: "Beard Power",
-      },
-    },
-    {
-      ability: {
-        name: "Stinky",
+      name: "Stinky",
       },
     },
   ]);
