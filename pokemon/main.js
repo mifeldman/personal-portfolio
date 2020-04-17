@@ -90,10 +90,10 @@ function populateCardBack(pokemon) {
 
 // New Custom Javascript Object Creation
 class Pokemon {
-  constructor(height, weight, name, abilities) {
+  constructor(name, height, weight, abilities) {
+    this.name = name;
     this.height = height;
     this.weight = weight;
-    this.name = name;
     this.abilities = abilities;
     this.id = 900;
   }
@@ -110,40 +110,31 @@ pokemonGrid.appendChild(createform);
 heading.innerHTML = "New Pokemon";
 createform.appendChild(heading);
 
-var namelabel = document.createElement('label'); // Create Label for Name Field
-namelabel.innerHTML = "Pokemon Name : "; // Set Field Labels
-createform.appendChild(namelabel);
 
-var inputelement = document.createElement('input'); // Create Input Field for Name
-inputelement.setAttribute("type", "text");
-inputelement.setAttribute("name", "dname");
-createform.appendChild(inputelement);
 
-var linebreak = document.createElement('br');
-createform.appendChild(linebreak);
 
-var emaillabel = document.createElement('label'); // Create Label for E-mail Field
-emaillabel.innerHTML = "Your Email : ";
-createform.appendChild(emaillabel);
 
-var emailelement = document.createElement('input'); // Create Input Field for E-mail
-emailelement.setAttribute("type", "text");
-emailelement.setAttribute("name", "demail");
-createform.appendChild(emailelement);
+// Create Label and Input for Height
+var heightLabel = document.createElement('label'); 
+heightLabel.innerHTML = "Height : "; 
+createform.appendChild(heightLabel);
+var height = document.createElement('input'); 
+height.setAttribute("type", "text");
+height.setAttribute("id", "height");
+createform.appendChild(height);
 
-var emailbreak = document.createElement('br');
-createform.appendChild(emailbreak);
+// Create Label and Input for Height
+var heightLabel = document.createElement('label'); 
+heightLabel.innerHTML = "Height : "; 
+createform.appendChild(heightLabel);
+var height = document.createElement('input'); 
+height.setAttribute("type", "text");
+height.setAttribute("id", "height");
+createform.appendChild(height);
 
-var messagelabel = document.createElement('label'); // Append Textarea
-messagelabel.innerHTML = "Your Message : ";
-createform.appendChild(messagelabel);
 
-var texareaelement = document.createElement('textarea');
-texareaelement.setAttribute("name", "dmessage");
-createform.appendChild(texareaelement);
 
-var messagebreak = document.createElement('br');
-createform.appendChild(messagebreak);
+
 
 var submitelement = document.createElement('input'); // Append Submit Button
 submitelement.setAttribute("type", "submit");
@@ -158,22 +149,12 @@ submitelement.addEventListener("click", () => {
 
 
 function createPoke () {
-  let Thoremon = new Pokemon(190, 290, "Thoremon", [
-    {
-      ability: {
-       name: "Thunder Belly",
-    },
-    },
-    {
-      ability: {
-      name: "Beard Power",
-      },
-    },
-    {
-      ability: {
-      name: "Stinky",
-      },
-    },
-  ]);
-  populatePokeCard(Thoremon);
+  let height = document.getElementById('height').value;
+  
+
+
+
+  let thoremon = new Pokemon(height, 290, "Thoremon", []);
+  populatePokeCard(thoremon);
+  console.log(thoremon)
 }
