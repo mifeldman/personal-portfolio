@@ -1,16 +1,22 @@
 body {
   font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
 }
 
 header {
  display: flex;
  flex-wrap: wrap;
  background-color: #ff7675;
- width: 100vw;
+ border-radius: 25px;
+ justify-content: center;
+ box-shadow: 1px 1px 8px black;
+ position: sticky;
+ top: 0;
+ z-index: 1;
 }
 
 header h1 {
-  
+  background-color: white;
   padding: 1rem;
   width: 100%;
   text-align: center;
@@ -20,6 +26,11 @@ header button {
   width: 20%;
   padding: 1rem;
   margin: 1rem;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 1rem;
+  box-shadow: .5px .5px 3px black;
 }
 
 .pokemonGrid {
@@ -27,7 +38,48 @@ header button {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.pokemonBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+position: fixed;
+z-index: 1;
+background-color: #fbc531;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 20rem;
+padding: .5rem;
+border: 3px solid #dcdde1;
+border-radius: 20px;
+margin-top: 1rem;
+}
 
+form h2 {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  background-color: white;
+}
+
+form label {
+  padding: 1rem 0 .25rem 0;
+ }
+
+ form input {
+   width: 40%;
+ }
+
+form input#submit{
+  margin: 1.5rem 0 .5rem 0;
+  font-size: 1.5rem;
+  width: 30%;
+  background-color: #fbc531;
+  border: none;
+  box-shadow: .5px .5px 3px black;
+}
 .scene {
   width: 200px;
   height: 260px;
