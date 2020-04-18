@@ -1,3 +1,5 @@
+import { removeChildren } from "../scripts/uti.js";
+
 //resusable asnyc function
 async function getAPIData(url) {
   try {
@@ -25,13 +27,13 @@ let startButton = document.querySelector("#startButton");
 let newButton = document.querySelector("#newButton");
 
 startButton.addEventListener("click", () => {
+  removeChildren(pokemonGrid)
   loadPage();
 });
 
 newButton.addEventListener("click", () => {
   addPokemon();
 });
-
 
 
 function populatePokeCard(singlePokemon) {
@@ -113,8 +115,9 @@ class Pokemon {
 }
 
 function addPokemon() {
-
-  document.getElementById("newButton").disabled = true;
+  
+  // document.getElementById("newButton").disabled = true;
+  
 
   var createform = document.createElement('form'); // Create New Element Form
 createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
@@ -201,12 +204,15 @@ function validateForm() {
     alert("Ability 1 must be filled out")
   } else {
     createPoke();
+    removeChildren(pokemonBody)
   }
 }
 
 
+
 function createPoke () {
-  
+  removeChildren(pokemonGrid)
+  loadPage();
   let name = document.getElementById('name').value;
   let height = document.getElementById('height').value;
   let weight = document.getElementById('weight').value;
@@ -230,5 +236,3 @@ function createPoke () {
   populatePokeCard(newPoke);
   console.log(newPoke)
 }
-
-
