@@ -19,6 +19,7 @@ function loadPage() {
   })
 }
 
+let pokemonBody = document.querySelector(".pokemonBody")
 let pokemonGrid = document.querySelector(".pokemonGrid");
 let startButton = document.querySelector("#startButton");
 let newButton = document.querySelector("#newButton");
@@ -76,14 +77,26 @@ function getImageFileName(pokemon) {
 function populateCardBack(pokemon) {
   let cardBack = document.createElement('div')
   cardBack.className = 'card__face card__face--back'
+  
+  let height = document.createElement("p")
+  height.textContent = pokemon.height
+
+  let weight = document.createElement("p")
+  weight.textContent = pokemon.weight
+
+
+  
   let abilityList = document.createElement('ul')
   pokemon.abilities.forEach(ability => {
     let abilityName = document.createElement('li')
     abilityName.textContent = ability.ability.name
     abilityList.appendChild(abilityName)
   })
+  cardBack.appendChild(height)
+  cardBack.appendChild(weight)
   cardBack.appendChild(abilityList)
   return cardBack
+  
 }
 
 //also do some formatting over the weekend so the pokemon cards look purty.
@@ -100,16 +113,13 @@ class Pokemon {
 }
 
 function addPokemon() {
-  
 
+  document.getElementById("newButton").disabled = true;
 
-  // ------- CHANGE WHERE THE FORM IS PLACED IN THE DOM !!!!! ------
-
-  
   var createform = document.createElement('form'); // Create New Element Form
 createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
-createform.setAttribute("method", "post"); // Setting Method Attribute on Form
-pokemonGrid.appendChild(createform);
+createform.setAttribute("id", "myForm");
+pokemonBody.appendChild(createform);
 
   var heading = document.createElement('h2'); // Heading of Form
 heading.innerHTML = "New Pokemon";
@@ -164,22 +174,39 @@ abilitySecond.setAttribute("type", "text");
 abilitySecond.setAttribute("id", "ability2");
 createform.appendChild(abilitySecond);
 
-
-
-
-
 var submitelement = document.createElement('input'); // Append Submit Button
 submitelement.setAttribute("type", "submit");
-submitelement.setAttribute("value", "Submit");
+submitelement.setAttribute("id", "submit")
 createform.appendChild(submitelement);
 submitelement.addEventListener("click", () => {
-  createPoke();
+  validateForm();
 });
+}
 
+// Validate that the form is filled out, otherwise send error
+function validateForm() {
+  var nameValue = document.forms["myForm"]["name"].value;
+  var heightValue = document.forms["myForm"]["height"].value;
+  var weightValue = document.forms["myForm"]["weight"].value;
+  var abilityValue = document.forms["myForm"]["ability1"].value;
+
+  if (nameValue == "") {
+    alert("Name must be filled out");
+    return false;
+  } else if (heightValue == ""){
+    alert("Height must be filled out")
+  } else if (weightValue == ""){
+    alert("Weight must be filled out")
+  } else if (abilityValue == ""){
+    alert("Ability 1 must be filled out")
+  } else {
+    createPoke();
+  }
 }
 
 
 function createPoke () {
+  
   let name = document.getElementById('name').value;
   let height = document.getElementById('height').value;
   let weight = document.getElementById('weight').value;
@@ -203,3 +230,5 @@ function createPoke () {
   populatePokeCard(newPoke);
   console.log(newPoke)
 }
+
+
