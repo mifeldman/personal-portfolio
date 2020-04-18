@@ -79,23 +79,28 @@ function getImageFileName(pokemon) {
 function populateCardBack(pokemon) {
   let cardBack = document.createElement('div')
   cardBack.className = 'card__face card__face--back'
+
+  let pokeStats = document.createElement('h2')
+  pokeStats.textContent = "PokeStats"
   
   let height = document.createElement("p")
-  height.textContent = pokemon.height
+  height.textContent = "Height" + " - " + `${pokemon.height}`
 
   let weight = document.createElement("p")
-  weight.textContent = pokemon.weight
+  weight.textContent = "Weight" + " - " + `${pokemon.weight}`
 
-
-  
+  let abilityTitle = document.createElement('h3')
+  abilityTitle.textContent = "Abilities"
   let abilityList = document.createElement('ul')
   pokemon.abilities.forEach(ability => {
     let abilityName = document.createElement('li')
     abilityName.textContent = ability.ability.name
     abilityList.appendChild(abilityName)
   })
+  cardBack.appendChild(pokeStats)
   cardBack.appendChild(height)
   cardBack.appendChild(weight)
+  cardBack.appendChild(abilityTitle)
   cardBack.appendChild(abilityList)
   return cardBack
   
