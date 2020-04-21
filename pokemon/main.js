@@ -32,6 +32,7 @@ startButton.addEventListener("click", () => {
 });
 
 newButton.addEventListener("click", () => {
+  removeChildren(pokemonBody)
   addPokemon();
 });
 
