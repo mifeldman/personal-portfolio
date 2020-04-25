@@ -213,6 +213,7 @@ function validateForm() {
 // Takes validated input and stores it in variable, which is added a new custom object
 function createPoke() {
   removeChildren(pokemonGrid);
+  loadPage()
   let name = document.getElementById("name").value;
   let height = document.getElementById("height").value;
   let weight = document.getElementById("weight").value;
