@@ -118,6 +118,7 @@ class Pokemon {
   }
 }
 
+//Function that creates an HTML form in the DOM, then sends to validation
 function addPokemon() {
   // document.getElementById("newButton").disabled = true;
 
@@ -196,19 +197,22 @@ function validateForm() {
     return false;
   } else if (heightValue == "") {
     alert("Height must be filled out");
+    return false;
   } else if (weightValue == "") {
     alert("Weight must be filled out");
+    return false;
   } else if (abilityValue == "") {
     alert("Ability 1 must be filled out");
+    return false;
   } else {
     createPoke();
     removeChildren(pokemonBody);
   }
 }
 
+// Takes validated input and stores it in variable, which is added a new custom object
 function createPoke() {
   removeChildren(pokemonGrid);
-  loadPage();
   let name = document.getElementById("name").value;
   let height = document.getElementById("height").value;
   let weight = document.getElementById("weight").value;

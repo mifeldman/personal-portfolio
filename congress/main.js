@@ -4,6 +4,10 @@ import {removeChildren} from '../scripts/uti.js'
 const senatorGrid = document.querySelector(".senatorGrid");
 const seniorityButton = document.querySelector('#seniorityButton')
 const ageButton = document.querySelector('#ageButton')
+const republicansButton = document.querySelector('#republicans')
+const democratsButton = document.querySelector('#democrats')
+const independentsButton = document.querySelector('#independents')
+
 
 seniorityButton.addEventListener('click', () => {
   senioritySort();
@@ -11,6 +15,18 @@ seniorityButton.addEventListener('click', () => {
 
 ageButton.addEventListener('click', () => {
   birthdaySort();
+})
+
+republicansButton.addEventListener('click', () => {
+  filterRepublicans()
+})
+
+democratsButton.addEventListener('click', () => {
+  filterDemocrats()
+})
+
+independentsButton.addEventListener('click', () => {
+  filterIndependents()
 })
 
 function getSimplifiedSenators(senatorArray) {
@@ -40,7 +56,6 @@ function populateSenatorDiv(simpleSenators) {
     if (senator.party === "R") partyIcon.className = "fas fa-republican";
     if (senator.party === "D") partyIcon.className = "fas fa-democrat";
     if (senator.party === "ID") partyIcon.className = "fas fa-star";
-    partyIcon.className = "fas fa-democrat";
     figImg.src = senator.imgURL;
     figCaption.textContent = senator.name;
 
@@ -95,8 +110,23 @@ const filterSenators = (prop, value) => {
   });
 };
 
-const republicans = filterSenators("party", "R");
-const democrats = filterSenators("party", "D");
+
+function filterRepublicans () {
+  const republicans = filterSenators("party", "R");
+  return populateSenatorDiv(getSimplifiedSenators(republicans))
+}
+
+function filterDemocrats () {
+  const democrats = filterSenators("party", "D");
+  populateSenatorDiv(getSimplifiedSenators(democrats))
+}
+
+function filterIndependents () {
+  const independents = filterSenators("party", "ID");
+  populateSenatorDiv(getSimplifiedSenators(independents))
+}
+
+
 
 // looks like your missing mostSeniority and some other stuff? maybe ask about that? what we are supposed to do for this assignment
 
@@ -121,10 +151,10 @@ const mostLoyal = getSimplifiedSenators(republicans).reduce((acc, senator) => {
 //console.log(loyalArray)
 
 function senioritySort() {
-  populateSenatorDiv(getSimplifiedSenators(senators).sort((a, b) => {
+
+    populateSenatorDiv(getSimplifiedSenators(senators).sort((a, b) => {
       return parseInt(a.seniority) - parseInt(b.seniority)
-  })
-  )
+    }))
 }
 
 function birthdaySort() {
@@ -134,4 +164,6 @@ function birthdaySort() {
   )
 }
 
-populateSenatorDiv(getSimplifiedSenators(senators));
+
+
+// populateSenatorDiv(getSimplifiedSenators(senators));
