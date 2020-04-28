@@ -32,6 +32,7 @@ independentsButton.addEventListener('click', () => {
 function getSimplifiedSenators(senatorArray) {
   return senatorArray.map((senator) => {
     let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `;
+    //Returns an object with the desired information
     return {
       id: senator.id,
       name: `${senator.first_name}${middleName}${senator.last_name}`,
@@ -140,6 +141,7 @@ const missedVotes = getSimplifiedSenators(senators).reduce((acc, senator) =>
 
 let loyalArray = [];
 
+//Uses the push Array method to add most loyal at the end of the array
 const mostLoyal = getSimplifiedSenators(republicans).reduce((acc, senator) => {
   if (senator.loyaltyPct === 100) {
     loyalArray.push(senator);
