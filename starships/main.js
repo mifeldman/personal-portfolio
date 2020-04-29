@@ -43,7 +43,7 @@ function populateShipView(shipData) {
   removeChildren(shipView);
   let shipNum = getLastNumber(shipData.url);
   let shipImage = document.createElement("img");
-  shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`; //string using template literals
+  shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`; //string using template literals for string manipulation
   shipImage.addEventListener("error", event => {
     shipImage.hidden = true;
     dialog.classList.toggle("is-active");

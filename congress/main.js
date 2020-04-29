@@ -32,7 +32,7 @@ independentsButton.addEventListener('click', () => {
 function getSimplifiedSenators(senatorArray) {
   return senatorArray.map((senator) => {
     let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `;
-    //Returns an object with the desired information
+    //Returns an object with the desired information and implementing key value pairs
     return {
       id: senator.id,
       name: `${senator.first_name}${middleName}${senator.last_name}`,
@@ -129,8 +129,7 @@ function filterIndependents () {
 
 
 
-// looks like your missing mostSeniority and some other stuff? maybe ask about that? what we are supposed to do for this assignment
-
+// This variable uses an arrow function and dot notation to access the seniority of the senators object in the data.
 const mostSeniority = getSimplifiedSenators(senators).reduce((acc, senator) =>
   acc.seniority > senator.seniority ? acc : senator
 );
@@ -139,6 +138,7 @@ const missedVotes = getSimplifiedSenators(senators).reduce((acc, senator) =>
   acc.missedVotesPct > senator.missedVotesPct ? acc : senator
 );
 
+//Create empty array and use it to store a collection of data from the senators data
 let loyalArray = [];
 
 //Uses the push Array method to add most loyal at the end of the array
@@ -150,8 +150,8 @@ const mostLoyal = getSimplifiedSenators(republicans).reduce((acc, senator) => {
   return acc.loyaltyPct > senator.loyaltyPct ? acc : senator;
 });
 
-//console.log(loyalArray)
 
+//Functions below use the sort array method to grab the senority with dot notation, and then returns an integer of that value
 function senioritySort() {
 
     populateSenatorDiv(getSimplifiedSenators(senators).sort((a, b) => {

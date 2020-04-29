@@ -63,7 +63,7 @@ function populateCardFront(pokemon) {
   let frontLabel = document.createElement("p");
   frontLabel.textContent = `${pokemon.name
     .charAt(0)
-    .toUpperCase()}${pokemon.name.slice(1)}`;
+    .toUpperCase()}${pokemon.name.slice(1)}`; //string manipulation so that the first letter of the name is uppercase.
   cardFront.appendChild(frontImage);
   cardFront.appendChild(frontLabel);
   return cardFront;
@@ -72,7 +72,7 @@ function populateCardFront(pokemon) {
 function getImageFileName(pokemon) {
   if (pokemon.id < 10) {
     return `00${pokemon.id}`;
-  } else if (pokemon.id > 9 && pokemon.id < 100) {
+  } else if (pokemon.id > 9 && pokemon.id < 100) { //used the 'and' logical operation to state a range of numbers
     return `0${pokemon.id}`;
   } else if (pokemon.id > 809) {
     return `pokeball`;
@@ -106,17 +106,6 @@ function populateCardBack(pokemon) {
   cardBack.appendChild(abilityTitle);
   cardBack.appendChild(abilityList);
   return cardBack;
-}
-
-// New Custom Javascript Object Creation
-class Pokemon {
-  constructor(name, height, weight, abilities) {
-    this.name = name;
-    this.height = height;
-    this.weight = weight;
-    this.abilities = abilities;
-    this.id = 900;
-  }
 }
 
 //Function that creates an HTML form in the DOM, then sends to validation
@@ -225,6 +214,18 @@ function createPoke() {
 
   console.log(name, height, weight, firstAbility, secondAbility);
 
+  // New Custom Javascript Object Creation
+class Pokemon {
+  constructor(name, height, weight, abilities) {
+    this.name = name;
+    this.height = height;
+    this.weight = weight;
+    this.abilities = abilities;
+    this.id = 900;
+  }
+}
+
+  //Create array for abilities to follow format of API and add multiple abilities in object
   let newPoke = new Pokemon(name, height, weight, [
     {
       ability: {

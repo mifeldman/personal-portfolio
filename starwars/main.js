@@ -11,7 +11,7 @@ const otherButton = document.querySelector("#otherButton");
 //Use of filter functions in JS to be able to filter the page by gender. Info is from API.
 const otherCharacters = people.filter(person => {
   if (
-    person.gender === "hermaphrodite" ||
+    person.gender === "hermaphrodite" || //strict value comparison and the logical operation or - ||
     person.gender === "n/a" ||
     person.gender === "none"
   ) {

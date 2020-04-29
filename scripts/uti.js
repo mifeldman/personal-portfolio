@@ -1,10 +1,10 @@
 export function getLastNumber(url) {
   let end = url.lastIndexOf("/");
   let start = end - 2;
-  if (url.charAt(start) === "/") {
+  if (url.charAt(start) === "/") { //strict value comparision here to catch where the '/' is in the url
     start++;
   }
-  return url.slice(start, end);
+  return url.slice(start, end); //Uses slice function to get the desired amount of numbers/characters from the urls
 }
 
 export function removeChildren(element) {
