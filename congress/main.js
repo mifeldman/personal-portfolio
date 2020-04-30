@@ -1,33 +1,32 @@
 import { senators } from "../data/senators.js";
-import {removeChildren} from '../scripts/uti.js'
+import { removeChildren } from "../scripts/uti.js";
 
 const senatorGrid = document.querySelector(".senatorGrid");
-const seniorityButton = document.querySelector('#seniorityButton')
-const ageButton = document.querySelector('#ageButton')
-const republicansButton = document.querySelector('#republicans')
-const democratsButton = document.querySelector('#democrats')
-const independentsButton = document.querySelector('#independents')
+const seniorityButton = document.querySelector("#seniorityButton");
+const ageButton = document.querySelector("#ageButton");
+const republicansButton = document.querySelector("#republicans");
+const democratsButton = document.querySelector("#democrats");
+const independentsButton = document.querySelector("#independents");
 
-
-seniorityButton.addEventListener('click', () => {
+seniorityButton.addEventListener("click", () => {
   senioritySort();
-})
+});
 
-ageButton.addEventListener('click', () => {
+ageButton.addEventListener("click", () => {
   birthdaySort();
-})
+});
 
-republicansButton.addEventListener('click', () => {
-  filterRepublicans()
-})
+republicansButton.addEventListener("click", () => {
+  filterRepublicans();
+});
 
-democratsButton.addEventListener('click', () => {
-  filterDemocrats()
-})
+democratsButton.addEventListener("click", () => {
+  filterDemocrats();
+});
 
-independentsButton.addEventListener('click', () => {
-  filterIndependents()
-})
+independentsButton.addEventListener("click", () => {
+  filterIndependents();
+});
 
 function getSimplifiedSenators(senatorArray) {
   return senatorArray.map((senator) => {
@@ -41,13 +40,13 @@ function getSimplifiedSenators(senatorArray) {
       missedVotesPct: senator.missed_votes_pct,
       party: senator.party,
       loyaltyPct: senator.votes_with_party_pct,
-      date_of_birth: senator.date_of_birth
+      date_of_birth: senator.date_of_birth,
     };
   });
 }
 
 function populateSenatorDiv(simpleSenators) {
-  removeChildren(senatorGrid)
+  removeChildren(senatorGrid);
   simpleSenators.forEach((senator) => {
     let senDiv = document.createElement("div");
     let senFigure = document.createElement("figure");
@@ -111,23 +110,20 @@ const filterSenators = (prop, value) => {
   });
 };
 
-
-function filterRepublicans () {
+function filterRepublicans() {
   const republicans = filterSenators("party", "R");
-  return populateSenatorDiv(getSimplifiedSenators(republicans))
+  return populateSenatorDiv(getSimplifiedSenators(republicans));
 }
 
-function filterDemocrats () {
+function filterDemocrats() {
   const democrats = filterSenators("party", "D");
-  populateSenatorDiv(getSimplifiedSenators(democrats))
+  populateSenatorDiv(getSimplifiedSenators(democrats));
 }
 
-function filterIndependents () {
+function filterIndependents() {
   const independents = filterSenators("party", "ID");
-  populateSenatorDiv(getSimplifiedSenators(independents))
+  populateSenatorDiv(getSimplifiedSenators(independents));
 }
-
-
 
 // This variable uses an arrow function and dot notation to access the seniority of the senators object in the data.
 const mostSeniority = getSimplifiedSenators(senators).reduce((acc, senator) =>
@@ -150,18 +146,19 @@ const mostLoyal = getSimplifiedSenators(republicans).reduce((acc, senator) => {
   return acc.loyaltyPct > senator.loyaltyPct ? acc : senator;
 });
 
-
 //Functions below use the sort array method to grab the senority with dot notation, and then returns an integer of that value
 function senioritySort() {
-
-    populateSenatorDiv(getSimplifiedSenators(senators).sort((a, b) => {
-      return parseInt(a.seniority) - parseInt(b.seniority)
-    }))
+  populateSenatorDiv(
+    getSimplifiedSenators(senators).sort((a, b) => {
+      return parseInt(a.seniority) - parseInt(b.seniority);
+    })
+  );
 }
 
 function birthdaySort() {
-  populateSenatorDiv(getSimplifiedSenators(senators).sort((a, b) => {
-      return parseInt(a.date_of_birth) - parseInt(b.date_of_birth)
-  })
-  )
+  populateSenatorDiv(
+    getSimplifiedSenators(senators).sort((a, b) => {
+      return parseInt(a.date_of_birth) - parseInt(b.date_of_birth);
+    })
+  );
 }

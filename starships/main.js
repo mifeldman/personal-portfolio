@@ -21,13 +21,13 @@ modalBackground.addEventListener("click", () => {
 
 function populateNav(starships) {
   //Uses forEach to iterate through the array and use the info to create HTML elements and assign values
-  starships.forEach(starship => {
+  starships.forEach((starship) => {
     let anchorWrap = document.createElement("a");
     anchorWrap.href = "#";
     //Event listener creates a variable and takes text content from navigation to select the right ship
-    anchorWrap.addEventListener("click", event => {
+    anchorWrap.addEventListener("click", (event) => {
       let shipName = event.target.textContent;
-      const foundShip = starships.find(ship => ship.name === shipName);
+      const foundShip = starships.find((ship) => ship.name === shipName);
       populateShipView(foundShip);
     });
     let listItem = document.createElement("li");
@@ -44,7 +44,7 @@ function populateShipView(shipData) {
   let shipNum = getLastNumber(shipData.url);
   let shipImage = document.createElement("img");
   shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`; //string using template literals for string manipulation
-  shipImage.addEventListener("error", event => {
+  shipImage.addEventListener("error", (event) => {
     shipImage.hidden = true;
     dialog.classList.toggle("is-active");
   });

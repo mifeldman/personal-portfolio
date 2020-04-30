@@ -11,7 +11,6 @@ async function getAPIData(url) {
   }
 }
 
-
 let pokemonBody = document.querySelector(".pokemonBody");
 let pokemonGrid = document.querySelector(".pokemonGrid");
 let startButton = document.querySelector("#startButton");
@@ -19,42 +18,43 @@ let newButton = document.querySelector("#newButton");
 let moreButton = document.querySelector("#moreButton");
 let allButton = document.querySelector("#allButton");
 
-
 let clickNum = 0;
 
 startButton.addEventListener("click", () => {
   removeChildren(pokemonGrid);
-  clickNum = 25;
-  loadPage()
+  clickNum = 25; //Use clicknum to determine the amount of pokemon to populate
+  loadPage();
 });
 
 newButton.addEventListener("click", () => {
-  removeChildren(pokemonBody)
+  removeChildren(pokemonBody);
   addPokemon();
 });
 
 moreButton.addEventListener("click", () => {
-  removeChildren(pokemonBody)
+  removeChildren(pokemonBody);
   clickNum = 50;
   loadPage();
 });
 
 allButton.addEventListener("click", () => {
-  removeChildren(pokemonBody)
+  removeChildren(pokemonBody);
   clickNum = 100;
   loadPage();
 });
 
-//Arrow functions
+//Arrow functions and a for then statement to extract the fetched data
 function loadPage() {
-  removeChildren(pokemonGrid)
-  getAPIData(`https://pokeapi.co/api/v2/pokemon/?&limit=${clickNum}`).then((data) => {
-    for (const pokemon of data.results) {
-      getAPIData(pokemon.url).then((pokeData) => {
-        populatePokeCard(pokeData);
-      });
+  removeChildren(pokemonGrid);
+  getAPIData(`https://pokeapi.co/api/v2/pokemon/?&limit=${clickNum}`).then(
+    (data) => {
+      for (const pokemon of data.results) {
+        getAPIData(pokemon.url).then((pokeData) => {
+          populatePokeCard(pokeData);
+        });
+      }
     }
-  });
+  );
 }
 
 function populatePokeCard(singlePokemon) {
@@ -81,9 +81,9 @@ function populateCardFront(pokemon) {
   frontImage.src = `../images/pokeimg/${getImageFileName(pokemon)}.png`;
 
   //Use an event listener for an error so that the missing image hides the star wars character. User experience.
-  frontImage.addEventListener("error", event => {
+  frontImage.addEventListener("error", (event) => {
     frontImage.src = "../images/pokeimg/pokeball.png";
-    });
+  });
 
   let frontLabel = document.createElement("p");
   frontLabel.textContent = `${pokemon.name
@@ -97,7 +97,8 @@ function populateCardFront(pokemon) {
 function getImageFileName(pokemon) {
   if (pokemon.id < 10) {
     return `00${pokemon.id}`;
-  } else if (pokemon.id > 9 && pokemon.id < 100) { //used the 'and' logical operation to state a range of numbers
+  } else if (pokemon.id > 9 && pokemon.id < 100) {
+    //used the 'and' logical operation to state a range of numbers
     return `0${pokemon.id}`;
   } else if (pokemon.id > 809) {
     return `pokeball`;
@@ -135,7 +136,6 @@ function populateCardBack(pokemon) {
 
 //Function that creates an HTML form in the DOM, then sends to validation
 function addPokemon() {
-
   //Const used for all the varibles here. Manipulating the DOM for these variables, so it is better to use CONST.
   const createform = document.createElement("form"); // Create New Element Form
   createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
@@ -225,7 +225,7 @@ function validateForm() {
   }
 }
 
- // New Custom Javascript Object Creation
+// New Custom Javascript Object Creation
 class Pokemon {
   constructor(name, height, weight, abilities) {
     this.name = name;

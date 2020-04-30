@@ -1,7 +1,8 @@
 export function getLastNumber(url) {
   let end = url.lastIndexOf("/");
   let start = end - 2;
-  if (url.charAt(start) === "/") { //strict value comparision here to catch where the '/' is in the url
+  if (url.charAt(start) === "/") {
+    //strict value comparision here to catch where the '/' is in the url
     start++;
   }
   return url.slice(start, end); //Uses slice function to get the desired amount of numbers/characters from the urls
@@ -30,7 +31,7 @@ export function addStarField(element, numStars) {
 }
 
 function getRandomPosition() {
-  let y = document.getElementById("foo").offsetHeight; //this is how you can make the starfield reach to the bottom,
+  let y = document.getElementById("foo").offsetHeight; //Starfield can reach the bottom when using offset height on the body element
   let x = window.outerWidth;
   let randomY = Math.floor(Math.random() * y);
   let randomX = Math.floor(Math.random() * x);
