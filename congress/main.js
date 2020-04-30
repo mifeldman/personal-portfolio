@@ -30,7 +30,7 @@ independentsButton.addEventListener("click", () => {
 
 function getSimplifiedSenators(senatorArray) {
   return senatorArray.map((senator) => {
-    let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `;
+    let middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `; //Using the map method to extract the middle name and add spacing around it.
     //Returns an object with the desired information and implementing key value pairs
     return {
       id: senator.id,
