@@ -90,7 +90,7 @@ function progressBars(senator) {
   );
   let votingLabel = document.createElement("label");
   votingLabel.for = "voting";
-  votingLabel.textContent = "Vote";
+  votingLabel.textContent = "Missed Votes";
   let votingBar = document.createElement("progress");
   votingLabel.id = "voting";
   votingBar.max = 100;
@@ -165,7 +165,3 @@ function birthdaySort() {
   })
   )
 }
-
-
-
-// populateSenatorDiv(getSimplifiedSenators(senators));

@@ -6,15 +6,20 @@
     <title>People of Congress</title>
     <link href="style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d85b42d663.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>People of Congress</h1>
-        <i class="fas fa-democrat" id="democrats"></i>
-        <i class="fas fa-republican" id="republicans"></i>
-        <i class="fas fa-star" id="independents"></i>
+        <h1>The People of Congress</h1>
+        <div class="buttonlist">
+        <h3>Filter by Political Party</h3>
+        <i class="fas fa-republican" id="republicans"> Republicans</i>
+        <i class="fas fa-star" id="independents"> Independents</i>
+         <i class="fas fa-democrat" id="democrats"> Democrats</i></div>
+        <div class="buttonlist">
+        <h3>Sort By Seniority/Age</h3>
         <button id="seniorityButton">Seniority</button>
-        <button id="ageButton">Age</button>
+        <button id="ageButton">Age</button></div>
     </header>
     <main>
         <div class="senatorGrid"></div>

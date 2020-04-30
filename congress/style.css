@@ -1,35 +1,115 @@
 body {
     background-color: #CECECE;
+    background-image: linear-gradient(90deg, #d63031, white, #0984e3);
+    overflow-x: hidden;
 }
 
 header {
     text-align: center;
+    padding: 1rem -20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-family: 'Parisienne', cursive;
+}
+
+.buttonlist {
+    margin: auto;
+    margin-bottom: 1.5rem;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: .5rem;
+    width: 70%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.buttonlist h3 {
+    margin: .5rem;
+}
+
+.buttonlist i {
+    margin: .5rem;
+    font-size: 1.5rem;
+    margin-left: .75rem;
+}
+
+.buttonlist button {
+    width: 10%;
+  padding: 1rem;
+margin: .5rem;
+  color: black;
+  background-color: white;
+  border: none;
+  font-size: 1rem;  
+  border-radius: 10px;    
 }
 
 .senatorGrid{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 figure {
-    margin: .5rem;
+    margin: 1rem 1rem 0 1rem;
+    border: 2px solid black;
+    padding: .5rem;
+    background-color: black;
 }
 
 figcaption {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    background-color:rgb(224, 223, 223);
+    padding: .5rem;
+    margin-bottom: 0;
 }
 
+.progressDiv {
+    padding: .5rem 1rem;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 10rem;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin: .5rem 0;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(top, #d63031, white, #0984e3);
+  
+      border-radius: 2px; 
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
+
 .fa-democrat{
-    color: blue;
+    color: #0984e3;
 }
 
 .fa-republican {
-    color: red;
+    color: #d63031;
 }
 
 .fa-star {
-    /* color: yellow; */
+    color: rgb(243, 243, 57);
 }
 
 .progressDiv {
