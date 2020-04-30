@@ -33,6 +33,11 @@ header button {
   box-shadow: 0.5px 0.5px 3px black;
 }
 
+#newButton {
+  background-color: white !important;
+  color: black !important;
+}
+
 .pokemonGrid {
   display: flex;
   flex-wrap: wrap;

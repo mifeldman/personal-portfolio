@@ -80,6 +80,11 @@ function populateCardFront(pokemon) {
   let frontImage = document.createElement("img");
   frontImage.src = `../images/pokeimg/${getImageFileName(pokemon)}.png`;
 
+  //Use an event listener for an error so that the missing image hides the star wars character. User experience.
+  frontImage.addEventListener("error", event => {
+    frontImage.src = "../images/pokeimg/pokeball.png";
+    });
+
   let frontLabel = document.createElement("p");
   frontLabel.textContent = `${pokemon.name
     .charAt(0)
@@ -234,7 +239,6 @@ class Pokemon {
 // Takes validated input and stores it in variable, which is added a new custom object
 function createPoke() {
   removeChildren(pokemonGrid);
-  loadPage();
   //Creates new variables to access values again, this is to respect the non-global scope of the variables made in the validate form function.
   const name = document.getElementById("name").value;
   const height = document.getElementById("height").value;
