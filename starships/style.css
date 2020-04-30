@@ -13,9 +13,20 @@ footer {
   justify-content: center;
 }
 
+header {
+  flex-direction: column;
+}
+
+button {
+  margin-bottom: 2rem;
+  padding: 0;
+  height: 3rem;
+  font-size: 1rem;
+}
+
 h1 {
   font-size: 2em;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0 1.5rem 0;
   color: white;
   font-family: "Righteous", cursive;
 }
@@ -58,7 +69,7 @@ nav {
 /* Consider using flexbox here on main  */
 img {
   margin: auto;
-  margin-left: 2rem;
+  margin-left: 1.75rem;
   position: fixed;
   z-index: 1;
   border-radius: 25px;

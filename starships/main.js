@@ -9,6 +9,7 @@ const shipView = document.querySelector(".main");
 const dialog = document.querySelector(".modal");
 const closeButton = document.querySelector(".modal-close");
 const modalBackground = document.querySelector(".modal-background");
+const hyperButton = document.querySelector(".sortHype");
 
 //Adjusting the classes for the Bulma elements using event listener. Toggles the error screen.
 closeButton.addEventListener("click", () => {
@@ -18,6 +19,12 @@ closeButton.addEventListener("click", () => {
 modalBackground.addEventListener("click", () => {
   dialog.classList.toggle("is-active");
 });
+
+hyperButton.addEventListener("click", (event) => {
+  removeChildren(navList)
+  hyperdriveSort()
+});
+
 
 function populateNav(starships) {
   //Uses forEach to iterate through the array and use the info to create HTML elements and assign values
@@ -39,6 +46,15 @@ function populateNav(starships) {
   });
 }
 
+//Uses the sort array method to manipulate array data and re-populate the nav
+function hyperdriveSort() {
+  populateNav( (starships).sort((a, b) => {
+      return parseInt(a.hyperdrive_rating) - parseInt(b.hyperdrive_rating);
+    })
+  );
+}
+
+
 function populateShipView(shipData) {
   removeChildren(shipView);
   let shipNum = getLastNumber(shipData.url);
@@ -50,6 +66,7 @@ function populateShipView(shipData) {
   });
   shipView.appendChild(shipImage);
 }
+
 
 populateNav(starships);
 
