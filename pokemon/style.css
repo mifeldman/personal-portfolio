@@ -31,11 +31,11 @@ header button {
   border: none;
   font-size: 1rem;
   box-shadow: 0.5px 0.5px 3px black;
+  border: 1px solid red;
 }
 
 #newButton {
-  background-color: white !important;
-  color: black !important;
+  border: 1px solid yellow;
 }
 
 .pokemonGrid {

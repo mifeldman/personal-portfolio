@@ -39,7 +39,7 @@ moreButton.addEventListener("click", () => {
 
 allButton.addEventListener("click", () => {
   removeChildren(pokemonBody);
-  clickNum = 100;
+  clickNum = 99;
   loadPage();
 });
 
@@ -138,7 +138,8 @@ function populateCardBack(pokemon) {
 function addPokemon() {
   //Const used for all the varibles here. Manipulating the DOM for these variables, so it is better to use CONST.
   const createform = document.createElement("form"); // Create New Element Form
-  createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form
+  createform.setAttribute("action", "javascript:void(0)"); // Setting Action Attribute on Form, cancels sending a form
+  console.log("Form is cancelled on purpose, not a bug.")
   createform.setAttribute("id", "myForm");
   pokemonBody.appendChild(createform);
 
