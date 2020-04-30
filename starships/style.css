@@ -57,9 +57,10 @@ nav {
 
 /* Consider using flexbox here on main  */
 img {
-  margin-left: 5rem;
+  margin: auto;
+  margin-left: 2rem;
   position: fixed;
   z-index: 1;
   border-radius: 25px;
-  margin-top: 5rem;
+  
 }

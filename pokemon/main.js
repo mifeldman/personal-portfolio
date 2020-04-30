@@ -11,9 +11,44 @@ async function getAPIData(url) {
   }
 }
 
+
+let pokemonBody = document.querySelector(".pokemonBody");
+let pokemonGrid = document.querySelector(".pokemonGrid");
+let startButton = document.querySelector("#startButton");
+let newButton = document.querySelector("#newButton");
+let moreButton = document.querySelector("#moreButton");
+let allButton = document.querySelector("#allButton");
+
+
+let clickNum = 0;
+
+startButton.addEventListener("click", () => {
+  removeChildren(pokemonGrid);
+  clickNum = 25;
+  loadPage()
+});
+
+newButton.addEventListener("click", () => {
+  removeChildren(pokemonBody)
+  addPokemon();
+});
+
+moreButton.addEventListener("click", () => {
+  removeChildren(pokemonBody)
+  clickNum = 50;
+  loadPage();
+});
+
+allButton.addEventListener("click", () => {
+  removeChildren(pokemonBody)
+  clickNum = 100;
+  loadPage();
+});
+
 //Arrow functions
 function loadPage() {
-  getAPIData("https://pokeapi.co/api/v2/pokemon/?&limit=25").then((data) => {
+  removeChildren(pokemonGrid)
+  getAPIData(`https://pokeapi.co/api/v2/pokemon/?&limit=${clickNum}`).then((data) => {
     for (const pokemon of data.results) {
       getAPIData(pokemon.url).then((pokeData) => {
         populatePokeCard(pokeData);
@@ -21,21 +56,6 @@ function loadPage() {
     }
   });
 }
-
-let pokemonBody = document.querySelector(".pokemonBody");
-let pokemonGrid = document.querySelector(".pokemonGrid");
-let startButton = document.querySelector("#startButton");
-let newButton = document.querySelector("#newButton");
-
-startButton.addEventListener("click", () => {
-  removeChildren(pokemonGrid);
-  loadPage();
-});
-
-newButton.addEventListener("click", () => {
-  removeChildren(pokemonBody)
-  addPokemon();
-});
 
 function populatePokeCard(singlePokemon) {
   let pokeScene = document.createElement("div");
@@ -110,7 +130,6 @@ function populateCardBack(pokemon) {
 
 //Function that creates an HTML form in the DOM, then sends to validation
 function addPokemon() {
-  // document.getElementById("newButton").disabled = true;
 
   //Const used for all the varibles here. Manipulating the DOM for these variables, so it is better to use CONST.
   const createform = document.createElement("form"); // Create New Element Form
@@ -201,6 +220,17 @@ function validateForm() {
   }
 }
 
+ // New Custom Javascript Object Creation
+class Pokemon {
+  constructor(name, height, weight, abilities) {
+    this.name = name;
+    this.height = height;
+    this.weight = weight;
+    this.abilities = abilities;
+    this.id = 900;
+  }
+}
+
 // Takes validated input and stores it in variable, which is added a new custom object
 function createPoke() {
   removeChildren(pokemonGrid);
@@ -211,19 +241,6 @@ function createPoke() {
   const weight = document.getElementById("weight").value;
   const firstAbility = document.getElementById("ability1").value;
   const secondAbility = document.getElementById("ability2").value;
-
-  console.log(name, height, weight, firstAbility, secondAbility);
-
-  // New Custom Javascript Object Creation
-class Pokemon {
-  constructor(name, height, weight, abilities) {
-    this.name = name;
-    this.height = height;
-    this.weight = weight;
-    this.abilities = abilities;
-    this.id = 900;
-  }
-}
 
   //Create array for abilities to follow format of API and add multiple abilities in object
   let newPoke = new Pokemon(name, height, weight, [
@@ -239,5 +256,4 @@ class Pokemon {
     },
   ]);
   populatePokeCard(newPoke);
-  //console.log(newPoke)
 }
